@@ -1,0 +1,42 @@
+<html data-namespace-typo3-fluid="true"
+      xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+      xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:layout name="Default"/>
+
+<f:section name="headline">
+    <h1>Gridelements to container</h1>
+</f:section>
+
+<f:section name="content">
+    <f:form action="process" class="form-inline" style="margin-bottom: 2rem;">
+
+        <label class="form-label">Gridelement</label>
+        <f:form.select name="gridelement" class="form-control">
+            <f:for each="{gridelementTypes}" as="gridelement" key="layout">
+                <f:form.select.option value="{layout}">{layout}</f:form.select.option>
+            </f:for>
+        </f:form.select>
+
+        <label class="form-label">Umwandeln in Container</label>
+        <f:form.select name="container" class="form-control">
+            <f:for each="{containerTypes}" as="container">
+                <f:form.select.option value="{container}">{container}</f:form.select.option>
+            </f:for>
+        </f:form.select>
+
+        <label class="form-label">Anzahl *</label>
+        <f:form.textfield type="number" name="max" class="form-control" value="0"/>
+        <button type="submit" class="btn btn-primary">Migrieren</button>
+    </f:form>
+    <p style="margin-bottom: 2rem;">* Begrenzt die Anzahl der migrierten Gridelemente, bei 0 werden alle migriert.</p>
+
+    <f:for each="{gridelementTypes}" as="gridelement" key="layout">
+        <div class="alert alert-dark">
+            <strong>Gridelement Layout {layout}</strong><br/>
+            {gridelement.count} Mal verwendet
+        </div>
+    </f:for>
+</f:section>

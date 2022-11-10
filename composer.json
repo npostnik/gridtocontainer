@@ -1,0 +1,21 @@
+{
+    "name": "np/gridtocontainer",
+    "description": "Migrate gridelements to container",
+    "license": "GPL-2.0-or-later",
+    "type": "typo3-cms-extension",
+    "require": {
+        "typo3/cms-core": "^10.4",
+        "gridelementsteam/gridelements": "*",
+        "b13/container": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NP\\Gridtocontainer\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "gridtocontainer"
+        }
+    }
+}
